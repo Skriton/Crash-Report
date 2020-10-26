@@ -1,0 +1,277 @@
+---- Minecraft Crash Report ----
+// Oops.
+
+Time: 10/25/20 11:03 PM
+Description: Exception in server tick loop
+
+java.lang.NoSuchMethodError: net.minecraft.util.math.MathHelper.func_226163_a_(JJJ)J
+	at sonar.fluxnetworks.common.connection.transfer.FluxStorageHandler.getRequest(FluxStorageHandler.java:57) ~[?:1.16.3-6.0.0.3] {re:classloading}
+	at sonar.fluxnetworks.common.connection.FluxNetworkServer.onEndServerTick(FluxNetworkServer.java:126) ~[?:1.16.3-6.0.0.3] {re:classloading}
+	at sonar.fluxnetworks.register.CommonEventHandler.onServerTick(CommonEventHandler.java:60) ~[?:1.16.3-6.0.0.3] {re:classloading}
+	at net.minecraftforge.eventbus.ASMEventHandler_829_CommonEventHandler_onServerTick_ServerTickEvent.invoke(.dynamic) ~[?:?] {}
+	at net.minecraftforge.eventbus.ASMEventHandler.invoke(ASMEventHandler.java:85) ~[eventbus-3.0.3-service.jar:?] {}
+	at net.minecraftforge.eventbus.EventBus.post(EventBus.java:297) ~[eventbus-3.0.3-service.jar:?] {}
+	at net.minecraftforge.fml.hooks.BasicEventHooks.onPostServerTick(BasicEventHooks.java:120) ~[?:?] {re:classloading}
+	at net.minecraft.server.MinecraftServer.func_71217_p(MinecraftServer.java:824) ~[?:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
+	at net.minecraft.server.MinecraftServer.func_240802_v_(MinecraftServer.java:638) ~[?:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
+	at net.minecraft.server.MinecraftServer.lambda$func_240784_a_$0(MinecraftServer.java:229) ~[?:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_251] {}
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- System Details --
+Details:
+	Minecraft Version: 1.16.3
+	Minecraft Version ID: 1.16.3
+	Operating System: Linux (amd64) version 4.15.0-117-generic
+	Java Version: 1.8.0_251, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 1714429728 bytes (1635 MB) / 3989831680 bytes (3805 MB) up to 6681526272 bytes (6372 MB)
+	CPUs: 32
+	JVM Flags: 2 total; -Xmx7168M -Xms512M
+	ModLauncher: 7.0.1+78+master.e9771d8
+	ModLauncher launch target: fmlserver
+	ModLauncher naming: srg
+	ModLauncher services: 
+		/mixin-0.8.2.jar mixin PLUGINSERVICE 
+		/eventbus-3.0.3-service.jar eventbus PLUGINSERVICE 
+		/forge-1.16.3-34.1.25.jar object_holder_definalize PLUGINSERVICE 
+		/forge-1.16.3-34.1.25.jar runtime_enum_extender PLUGINSERVICE 
+		/accesstransformers-2.2.0-shadowed.jar accesstransformer PLUGINSERVICE 
+		/forge-1.16.3-34.1.25.jar capability_inject_definalize PLUGINSERVICE 
+		/forge-1.16.3-34.1.25.jar runtimedistcleaner PLUGINSERVICE 
+		/mixin-0.8.2.jar mixin TRANSFORMATIONSERVICE 
+		/forge-1.16.3-34.1.25.jar fml TRANSFORMATIONSERVICE 
+	FML: 34.1
+	Forge: net.minecraftforge:34.1.25
+	FML Language Providers: 
+		javafml@34.1
+		minecraft@1
+		kotori_scala@2.13.3-build-3
+	Mod List: 
+		AdditionalEnchantedMiner-1.16.3-16.1.1.jar QuarryPlus {quarryplus@16.1.1 DONE}
+		Variant16x-1.16.3-v0.17.4_beta_pre1.jar Variant16x {variant16x@0.17.4_beta_pre1 DONE}
+		Uppers-0.3.1.jar Uppers {uppers@0.3.1 DONE}
+		rad-1.16-4.1.0.jar Reload Audio Driver {rad@4.1.0 DONE}
+		mcw-windows-1.0.2-mc1.16.3.jar Macaw's Windows {mcwwindows@1.0.2 DONE}
+		SilentMechanisms-1.16.3-0.8.4+68.jar Silent's Mechanisms {silents_mechanisms@0.8.4+68 DONE}
+		bambooeverything-1.16.3-forge-1.0.0.jar Bamboo Everything {bambooeverything@1.16.3-forge-1.0.0 DONE}
+		Neat+1.7-24.jar Neat {neat@1.7-24 DONE}
+		IronJetpacks-1.16.3-4.1.1.jar Iron Jetpacks {ironjetpacks@4.1.1 DONE}
+		essentials-1.16.3-2.9.3.jar Essentials {essentials@1.16.3-2.9.3 DONE}
+		ForgeEndertech-1.16.3-7.0.6.0-build.0024.jar Forge Endertech {forgeendertech@7.0.6.0 DONE}
+		GravelMiner_1.16.3-10.2.0.jar GravelMiner {gravelminer@10.2.0 DONE}
+		Powah-1.16.3-2.3.2.jar Powah {powah@2.3.2 DONE}
+		rangedpumps-0.8.2.jar Ranged Pumps {rangedpumps@0.8.2 DONE}
+		Wither-Skeleton-Tweaks-1.16.3-5.2.1.jar Wither Skeleton Tweaks {wstweaks@5.2.1 DONE}
+		reliquary-1.16.3-1.3.4.1042.jar Reliquary {xreliquary@1.16.3-1.3.4.1042 DONE}
+		randompatches-1.16.2-1.22.1.2.jar RandomPatches {randompatches@1.16.2-1.22.1.2 DONE}
+		DarkUtilities-1.16.3-6.0.1.jar Dark Utilities {darkutils@6.0.1 DONE}
+		Hwyla-forge-1.10.11-B78_1.16.2.jar Waila {waila@1.10.11-B78_1.16.2 DONE}
+		speedyhoppers-1.16.3-1.jar Speedy Hoppers {speedyhoppers@1.16.3-1 DONE}
+		JustEnoughResources-1.16.3-0.12.0.102.jar Just Enough Resources {jeresources@0.12.0.102 DONE}
+		MysticalAgradditions-1.16.3-4.1.0.jar Mystical Agradditions {mysticalagradditions@4.1.0 DONE}
+		refinedstorage-1.9.8.jar Refined Storage {refinedstorage@1.9.8 DONE}
+		Upgraded Netherite 1.16.3 - 1.6.0.jar Upgraded Netherite {upgradednetherite@1.6.0 DONE}
+		industrial-foregoing-1.16.3-3.1.1-a834e76.jar Industrial Foregoing {industrialforegoing@3.1.1 DONE}
+		cleancut-mc1.16-2.2-forge.jar Clean Cut {cleancut@2.2 DONE}
+		torchmaster-2.3.4-alpha.jar Torchmaster {torchmaster@2.3.4-alpha DONE}
+		repurposed_structures-1.16.3-2.2.9.jar Repurposed Structures {repurposed_structures@1.16.3-2.2.9 DONE}
+		ironfurnaces-1.16.3-2.4.0.jar Iron Furnaces {ironfurnaces@2.4.0 DONE}
+		SilentGear-1.16.3-2.3.2+167.jar Silent Gear {silentgear@2.3.2+167 DONE}
+		extcaves-2.4.jar Extended Caves {extcaves@2.4 DONE}
+		portality-1.16.3-3.1.1.jar Portality {portality@3.1.1 DONE}
+		curios-forge-1.16.3-4.0.2.0.jar Curios API {curios@1.16.3-4.0.2.0 DONE}
+		Botania-1.16.3-409.jar Botania {botania@1.16.3-409 DONE}
+		randomite-1.16.3-1.0.1.jar Randomite Classic {randomite@1.0.1 DONE}
+		angelring-1.16.3-1.3.3.jar Angel Ring {angelring@1.3.3 DONE}
+		Fertilization_1.16.3-5.2.0.jar Fertilization {fertilization@5.2.0 DONE}
+		ExtraStorage-1.16.3-1.1.1.jar Extra Storage {extrastorage@1.1.1 DONE}
+		NaturesAura-32.0.jar Nature's Aura {naturesaura@32.0 DONE}
+		constructionwand-1.16.2-1.5.jar Construction Wand {constructionwand@1.16.2-1.5 DONE}
+		mcws-roofs-1.16.3-v2.0.0.jar Macaw's Roofs {mcwroofs@2.0.0 DONE}
+		furniture-7.0.0-pre19-1.16.3.jar MrCrayfish's Furniture Mod {cfm@7.0.0-pre19 DONE}
+		globalxp-1.16.3-v1.4.14.jar Global XP {globalxp@v1.4.14 DONE}
+		cloth-config-forge-4.1.0.jar Cloth Config v4 API {cloth-config@4.0 DONE}
+		BetterBurning-1.16.3-4.0.2.jar BetterBurning {betterburning@4.0.2 DONE}
+		woodcutter-1.3-1.16.3.jar Wood Cutter {woodcutter@1.3-1.16.3 DONE}
+		FastLeafDecay-v25.jar FastLeafDecay {fastleafdecay@v25 DONE}
+		BetterMineshaftsForge-1.16.2-1.0.jar YUNG's Better Mineshafts {bettermineshafts@1.16.2-1.0 DONE}
+		QuarkOddities-1.16.3.jar Quark Oddities {quarkoddities@1.16.3 DONE}
+		nomowanderer_MC1.16.3_1.0.jar NoMoWanderer {nomowanderer@1.16.3_1.0 DONE}
+		CraftandHunt-v2.0.0-1.16.3.jar Craft and Hunt {craftandhunt@2.2 DONE}
+		woot-1.16.3-1.0.0.0.jar Woot {woot@1.16.3-1.0.0.0 DONE}
+		bagofyurting-1.16.3-1.1.0.1.jar Bag of Yurting {bagofyurting@1.1.0.1 DONE}
+		vanillaexcavators-1.16.2-2.1.3.jar Vanilla Excavators {vanillaexcavators@2.1.3 DONE}
+		jei-1.16.3-7.6.0.49.jar Just Enough Items {jei@7.5.0.43 DONE}
+		kubejs-1603.2.8.73.jar KubeJS {kubejs@1603.2.8.73 DONE}
+		AttributeFix-1.16.3-8.0.1.jar AttributeFix {attributefix@8.0.1 DONE}
+		tesseract-1.0.13-mc1.16.3.jar Tesseract {tesseract@1.0.13 DONE}
+		goblintraders-1.2.2-1.16.3.jar Goblin Traders {goblintraders@1.2.2 DONE}
+		Mekanism-1.16.3-10.0.13.438.jar Mekanism {mekanism@10.0.13 DONE}
+		RingsOfAscension-1.16.3-1.5.6.jar Rings of Ascension {ringsofascension@1.5.6 DONE}
+		invtweaks-1.16.2-1.0.0.jar Inventory Tweaks Renewed {invtweaks@1.16.2-1.0.0 DONE}
+		NaturesCompass-1.16.3-1.8.5.jar Nature's Compass {naturescompass@1.16.3-1.8.5 DONE}
+		LibX-1.16.3-1.0.1.jar LibX {libx@1.16.3-1.0.1 DONE}
+		AdHooks-1.16.3-6.1.1.0-build.0017.jar Advanced Hook Launchers {adhooks@6.1.1.0 DONE}
+		phosphophyllite-1.16.3-0.0.4-beta.jar Phosphophyllite {phosphophyllite@0.0.4 DONE}
+		engineerstools-1.16.3-1.1.0.jar Engineer's Tools {engineerstools@1.1.0 DONE}
+		FarmingForBlockheads_1.16.3-7.2.0.jar Farming for Blockheads {farmingforblockheads@7.2.0 DONE}
+		pneumaticcraft-repressurized-1.16.3-2.4.5-62.jar PneumaticCraft: Repressurized {pneumaticcraft@1.16.3-2.4.5-62 DONE}
+		travellersboots-1.16.x-1.4.3.jar Traveller's Boots {travellersboots@1.4.3 DONE}
+		environmentalcreepers-forge-1.16.3-1.6.0.jar Environmental Creepers {environmentalcreepers@1.6.0 DONE}
+		PackingTape-1.16.3-0.10.0.jar Packing Tape {packingtape@0.10.0 DONE}
+		extradisks-1.16.3-1.3.3.jar Extra Disks {extradisks@1.3.3 DONE}
+		crossroads-1.16.3-2.4.4.jar Crossroads {crossroads@version DONE}
+		MythicBotany-1.16.3-1.1.3.jar MythicBotany {mythicbotany@1.16.3-1.1.3 DONE}
+		forge-1.16.3-34.1.25-server.jar Minecraft {minecraft@1.16.3 DONE}
+		pandoras_creatures-1.16.3-2.0.0.jar Pandoras Creatures {pandoras_creatures@1.16.3-2.0.0 DONE}
+		MouseTweaks-2.13-mc1.16.2.jar Mouse Tweaks {mousetweaks@2.13 DONE}
+		ImmersiveEngineering-1.16.3-4.1.0-124.jar Immersive Engineering {immersiveengineering@1.16.3-4.1.0-124 DONE}
+		morevanillalib-1.16.2-1.2.14.jar MoreVanillaLib {morevanillalib@1.2.14 DONE}
+		pamhc2crops-1.16.3-1.0.1.jar Pam's HarvestCraft 2 Crops {pamhc2crops@version DONE}
+		ceilingtorch-1.16.2-v1.8.jar Ceiling Torch {ceilingtorch@v1.8 DONE}
+		Mantle-1.16.3-1.6.40.jar Mantle {mantle@1.6.40 DONE}
+		Xaeros_Minimap_20.26.0_Forge_1.16.3.jar Xaero's Minimap {xaerominimap@20.26.0 DONE}
+		pamhc2foodcore-1.16.3-1.0.0.jar Pam's HarvestCraft 2 Food Core {pamhc2foodcore@version DONE}
+		itemcollectors-1.0.6-mc1.16.3.jar Item Collectors {itemcollectors@1.0.6 DONE}
+		gravestone-1.16.3-2.0.3.jar Gravestone Mod {gravestone@1.16.3-2.0.3 DONE}
+		ftb-backups-2.1.1.6.jar FTB Backups {ftbbackups@2.1.1.6 DONE}
+		polymorph-forge-1.16.3-0.15.jar Polymorph {polymorph@1.16.3-0.15 DONE}
+		AutoRegLib-1.6-46.jar AutoRegLib {autoreglib@1.6-46 DONE}
+		[1.16.3] SecurityCraft v1.8.20.1.jar SecurityCraft {securitycraft@v1.8.20.1 DONE}
+		WorldPreGenerator-1.16.3-1.0.0.jar World Pre Generator {world_pre_generator@1.0.0 DONE}
+		backpacked-1.6.1-1.16.3.jar Backpacked {backpacked@1.6.1 DONE}
+		PickleTweaks-1.16.3-5.1.2.jar Pickle Tweaks {pickletweaks@5.1.2 DONE}
+		FastFurnace-1.16.3-4.3.0.jar FastFurnace {fastfurnace@4.3.0 DONE}
+		connectedglass-1.0.6-mc1.16.3.jar Connected Glass {connectedglass@1.0.6 DONE}
+		RefinedRelocation_1.16.3-8.2.0.jar Refined Relocation {refinedrelocation@8.2.0 DONE}
+		byg-1.0.8.jar Oh The Biomes You'll Go {byg@1.0.8 DONE}
+		CosmeticArmorReworked-1.16.3-v1.jar CosmeticArmorReworked {cosmeticarmorreworked@1.16.3-v1 DONE}
+		lootbagmod-1.16.3-1.6.2.jar Loot Bag Mod {lootbagmod@1.6.2 DONE}
+		aiotbotania-1.16.2-1.3.2.jar AIOT Botania {aiotbotania@1.3.2 DONE}
+		forge-1.16.3-geckolib-2.1.2.jar GeckoLib {geckolib@2.1.2 DONE}
+		ars_nouveau-1.16.3-1.2.3.jar Ars Nouveau {ars_nouveau@1.2.3 DONE}
+		managear-1.16.3-2.1.2.jar Mana Gear {managear@1.16.1-2.1.2 DONE}
+		curiousshulkerboxes-forge-1.16.3-4.0.0.1.jar Curious Shulker Boxes {curiousshulkerboxes@1.16.3-4.0.0.1 DONE}
+		KleeSlabs_1.16.3-9.2.0.jar KleeSlabs {kleeslabs@9.2.0 DONE}
+		glassential-forge-1.16.3-1.1.5.jar Glassential {glassential@1.1.5 DONE}
+		XaerosWorldMap_1.11.0_Forge_1.16.3.jar Xaero's World Map {xaeroworldmap@1.11.0 DONE}
+		CookingForBlockheads_1.16.3-9.2.1.jar Cooking for Blockheads {cookingforblockheads@9.2.1 DONE}
+		Placebo-1.16.3-4.3.3.jar Placebo {placebo@4.3.3 DONE}
+		dankstorage-3.11.jar Dank Storage {dankstorage@3.11 DONE}
+		citadel-1.4.1.jar Citadel {citadel@1.4.1 DONE}
+		iceandfire-2.1.0-1.16.3.jar Ice and Fire {iceandfire@2.0.3-1.16.3 DONE}
+		rats-7.0.0-1.16.3.jar Rats {rats@7.0.0 DONE}
+		ratlantis-1.0.0-1.16.3.jar Rats: Ratlantis {ratlantis@1.0.0-1.16.3 DONE}
+		ftb-gui-library-1603.1.1.25.jar FTB GUI Library {ftbguilibrary@1603.1.1.25 DONE}
+		culinaryconstruct-forge-1.16.3-4.0.0.1.jar Culinary Construct {culinaryconstruct@1.16.3-4.0.0.1 DONE}
+		Bookshelf-1.16.3-8.7.20.jar Bookshelf {bookshelf@8.7.20 DONE}
+		BotanyPots-1.16.3-5.1.11.jar BotanyPots {botanypots@5.1.11 DONE}
+		BotanyTrees-1.16.3-1.0.7.jar BotanyTrees {botanytrees@1.0.7 DONE}
+		u_team_core-1.16.3-3.1.10.183.jar U Team Core {uteamcore@3.1.10.183 DONE}
+		buildinggadgets-3.7.1.jar Building Gadgets {buildinggadgets@3.7.1 DONE}
+		forge-1.16.3-34.1.25-universal.jar Forge {forge@34.1.25 DONE}
+		WailaHarvestability-mc1.16.2-forge-1.1.13.jar Waila Harvestability {wailaharvestability@1.1.13 DONE}
+		PassthroughSigns-1.16.2-2.3.6.jar Passthrough Signs {passthroughsigns@1.16.2-2.3.6 DONE}
+		Psi 1.16-87.jar Psi {psi@1.16-87 DONE}
+		Aquaculture-1.16.3-2.1.3.jar Aquaculture 2 {aquaculture@1.16.3-2.1.3 DONE}
+		Waddles-1.16.3-0.8.9.jar Waddles {waddles@1.16.3-0.8.9 DONE}
+		mcw-doors-1.0.1fix-mc1.16.3-1.16.2.jar Macaw's Doors {mcwdoors@1.0.1 DONE}
+		MekanismGenerators-1.16.3-10.0.13.438.jar Mekanism: Generators {mekanismgenerators@10.0.13 DONE}
+		Ma-Essentials-1.16.3-3.4.0.jar Ma Essentials {maessentials@1.16.3-3.4.0 DONE}
+		carryon-1.16.3-1.15.1.7.jar Carry On {carryon@1.15.1.7 DONE}
+		ftb-teams-1.0.1.12.jar FTB Teams {ftbteams@1.0.1.12 DONE}
+		MmmMmmMmmMmm-1.16-1.0.1.jar MmmMmmMmmMmm {dummmmmmy@1.0.1 DONE}
+		konkrete_1.0.3_MC_1.16.2-1.16.3.jar Konkrete {konkrete@1.0.3 DONE}
+		PrettyPipes-1.8.1.jar Pretty Pipes {prettypipes@1.8.1 DONE}
+		mcw-bridges-1.0.4-mc1.16.3.jar Macaw's Bridges {mcwbridges@1.0.4 DONE}
+		useful_backpacks-1.16.3-1.11.6.83.jar Useful Backpacks {usefulbackpacks@1.11.6.83 DONE}
+		entangled-1.2.7-mc1.16.3.jar Entangled {entangled@1.2.7 DONE}
+		MekanismAdditions-1.16.3-10.0.13.438.jar Mekanism: Additions {mekanismadditions@10.0.13 DONE}
+		Lollipop-1.16.3-3.2.2.jar Lollipop {lollipop@3.2.2 DONE}
+		LetSleepingDogsLie-1.16.3-1.1.1.jar Let Sleeping Dogs Lie {dogslie@1.1.1 DONE}
+		mining_dimension-1.16.3-1.0.5.jar Mining World {mining_dimension@1.16.3-1.0.5 DONE}
+		simplefarming-1.16.3-1.3.3.jar Simple Farming {simplefarming@1.16.3-1.3.3 DONE}
+		goprone-1.16.3-1.3.5.jar GoProne {goprone@1.16.3-1.3.5 DONE}
+		Patchouli-1.16.2-47.jar Patchouli {patchouli@1.16.2-47 DONE}
+		blockcarpentry-1.16.2-0.3.4.jar BlockCarpentry {blockcarpentry@1.16.2-0.3.4 DONE}
+		elevatorid-1.16.3-1.7.6.jar Elevator Mod {elevatorid@1.16.3-1.7.6 DONE}
+		ftb-ultimine-1603.1.1.12.jar FTB Ultimine {ftbultimine@1603.1.1.12 DONE}
+		expandedstorage-3.0.4+1.16.3.jar Expanded Storage {expandedstorage@3.0.4 DONE}
+		EnigmaticLegacy-2.6.1.jar Enigmatic Legacy {enigmaticlegacy@2.6.1 DONE}
+		Runelic-1.16.3-5.0.1.jar Runelic {runelic@5.0.1 DONE}
+		MekanismTools-1.16.3-10.0.13.438.jar Mekanism: Tools {mekanismtools@10.0.13 DONE}
+		cc-tweaked-1.16.3-1.93.1.jar CC: Tweaked {computercraft@1.93.1 DONE}
+		AI-Improvements-1.16.2-0.3.0.jar AI-Improvements {aiimprovements@0.3.0 DONE}
+		productivebees-1.16.3-0.4.1.4.jar Productive Bees {productivebees@1.16.3-0.4.1.4 DONE}
+		trashcans-1.0.3-mc1.16.3.jar Trash Cans {trashcans@1.0.3 DONE}
+		bwncr-1.16.3-3.8.15.jar Bad Wither No Cookie Reloaded {bwncr@1.16.3-3.8.15 DONE}
+		Cyclic-1.16.3-0.8.3.jar Cyclic {cyclic@1.16.3-0.8.3 DONE}
+		BotaniaAdditionsMC1.16.3-1.0.jar Botania Additions {botaniaadditions@1.0 DONE}
+		Ma-Enchants-1.16.3-3.5.0.jar Ma Enchants {ma-enchants@1.16.3-3.5.0 DONE}
+		biggerreactors-1.16.3-0.1.9-beta.jar Bigger Reactors {biggerreactors@0.1.9 DONE}
+		Cucumber-1.16.3-4.1.2.jar Cucumber Library {cucumber@4.1.2 DONE}
+		TrashSlot_1.16.3-12.2.0.jar TrashSlot {trashslot@12.2.0 DONE}
+		flatbedrock-1.16.3-1.1.3.jar Flat Bedrock {flatbedrock@1.16.3-1.1.3 DONE}
+		craftingstation-4.1.1.jar Crafting Station {craftingstation@4.1.1 DONE}
+		item-filters-2.2.2.18.jar Item Filters {itemfilters@2.2.2.18 DONE}
+		ftb-quests-1603.1.0.5.jar FTB Quests {ftbquests@1603.1.0.5 DONE}
+		metalbarrels-3.3a.jar Metal Barrels {metalbarrels@3.3a DONE}
+		Tiny-Coal-1.16.3-1.0.0.jar Tiny Coal {tinycoal@1.0.0 DONE}
+		WAWLA-1.16.3-6.0.1.jar WAWLA {wawla@6.0.1 DONE}
+		Waystones_1.16.3-7.3.0.jar Waystones {waystones@7.3.0 DONE}
+		Clumps-6.0.0.11.jar Clumps {clumps@6.0.0.11 DONE}
+		appliedenergistics2-8.1.0-alpha.3.jar Applied Energistics 2 {appliedenergistics2@8.1.0-alpha.3 DONE}
+		DimStorage-1.16.3-4.2.1.jar DimStorage {dimstorage@4.2.1 DONE}
+		BasicNetherOres-1.16.3-5.3.0.jar Basic Nether Ores {bno@5.3.0 DONE}
+		VanillaTweaks-1.16.3-1.5.33.jar VanillaTweaks {vanillatweaks@1.16.3-1.5.33 DONE}
+		taffyjump-1.16.1-1.0.jar TaffyJump {taffyjump@1.16.1-1.0 DONE}
+		DungeonCrawl-1.16.3-2.1.1.jar Dungeon Crawl {dungeoncrawl@2.1.1 DONE}
+		mcjtylib-1.16-5.0.11.jar McJtyLib {mcjtylib@1.16-5.0.11 DONE}
+		rftoolsbase-1.16-2.0.6.jar RFToolsBase {rftoolsbase@1.16-2.0.6 DONE}
+		xnet-1.16-3.0.7.jar XNet {xnet@1.16-3.0.7 DONE}
+		rftoolspower-1.16-3.0.8.jar RFToolsPower {rftoolspower@1.16-3.0.8 DONE}
+		rftoolsbuilder-1.16-3.0.8.jar RFToolsBuilder {rftoolsbuilder@1.16-3.0.8 DONE}
+		rftoolsstorage-1.16-2.0.5.jar RFToolsStorage {rftoolsstorage@1.16-2.0.5 DONE}
+		rftoolscontrol-1.16-4.0.5.jar RFToolsControl {rftoolscontrol@1.16-4.0.5 DONE}
+		mahoutsukai-1.16.3-v1.25.1.jar Mahou Tsukai {mahoutsukai@1.16.3-v1.25.1 DONE}
+		mininggadgets-1.6.0.jar Mining Gadgets {mininggadgets@1.6.0 DONE}
+		ftb-chunks-1603.1.2.40.jar FTB Chunks {ftbchunks@1603.1.2.40 DONE}
+		scuba-gear-1.16.3-1.0.1.jar Scuba Gear {scuba_gear@1.0.1 DONE}
+		MysticalAgriculture-1.16.3-4.1.1.jar Mystical Agriculture {mysticalagriculture@4.1.1 DONE}
+		CraftingTweaks_1.16.3-12.2.0.jar Crafting Tweaks {craftingtweaks@12.2.0 DONE}
+		rftoolsutility-1.16-3.0.11.jar RFToolsUtility {rftoolsutility@1.16-3.0.11 DONE}
+		EnchantmentDescriptions-1.16.3-5.0.6.jar EnchantmentDescriptions {enchdesc@5.0.6 DONE}
+		ToolBelt-1.16.3-1.15.2.jar Tool Belt {toolbelt@1.15.2 DONE}
+		titanium-1.16.3-3.1.0.jar Titanium {titanium@3.1.0 DONE}
+		compactores-1.16.3-3.0.2.jar Compact Ores {compactores@3.0.2 DONE}
+		SilentLib-1.16.3-4.8.1+61.jar Silent Lib {silentlib@4.8.1+61 DONE}
+		forbidden_arcanus-1.16.3-1.0.2.jar Forbidden & Arcanus {forbidden_arcanus@1.16.3-1.0.2 DONE}
+		LargeFluidTank-16.0.6.jar FluidTank {fluidtank@16.0.6 DONE}
+		Quark-r2.4-270.jar Quark {quark@r2.4-270 DONE}
+		Apotheosis-1.16.3-4.4.0.jar Apotheosis {apotheosis@4.4.0 DONE}
+		FastWorkbench-1.16.3-4.4.0.jar FastWorkbench {fastbench@4.4.0 DONE}
+		StorageDrawers-1.16.3-8.2.0.jar Storage Drawers {storagedrawers@8.2.0 DONE}
+		FluxNetworks-1.16.3-6.0.0.3.jar Flux Networks {fluxnetworks@1.16.3-6.0.0.3 DONE}
+		vanillahammers-1.16.2-2.1.3.jar Vanilla Hammers {vanillahammers@2.1.3 DONE}
+		InventoryHud_1.16.x.forge-3.1.3.jar Inventory HUD+(Forge edition) {inventoryhud@3.1.3 DONE}
+		tubesreloaded-1.16.3-1.5.0.0.jar Tubes Reloaded {tubesreloaded@1.5.0.0 DONE}
+		hunterillager-1.16.3-1.1.2.jar HunterIllager {hunterillager@1.16.3-1.1.2 DONE}
+		engineersdecor-1.16.3-1.1.3-b2.jar Engineer's Decor {engineersdecor@1.1.3-b2 DONE}
+		solcarrot-1.16.3-1.9.8.jar Spice of Life: Carrot Edition {solcarrot@1.16.3-1.9.8 DONE}
+		modular-routers-1.16.3-7.1.1-37.jar Modular Routers {modularrouters@1.16.3-7.1.1-37 DONE}
+		SilentGems-1.16.3-3.7.2+105.jar Silent's Gems 3 {silentgems@3.7.2+105 DONE}
+		refinedstorageaddons-0.7.2.jar Refined Storage Addons {refinedstorageaddons@0.7.2 DONE}
+		CraftingCraft_1.16.3-9.2.0.jar CraftingCraft {craftingcraft@9.2.0 DONE}
+		overloadedarmorbar-5.1.0.jar Overloaded Armor Bar {overloadedarmorbar@5.1.0 DONE}
+		chiselsandbits-0.2.0-ALPHA.jar Chisels & bits {chiselsandbits@NONE DONE}
+		OpenLoader-1.16.3-7.0.3.jar OpenLoader {openloader@7.0.3 DONE}
+	Crash Report UUID: f35c48d9-a935-4ebe-8d66-a71f9ad71efb
+	[Psi] Active spell: None
+	Player Count: 0 / 84; []
+	Data Packs: vanilla, mod:variant16x, mod:uppers (incompatible), mod:rad (incompatible), mod:mcwwindows (incompatible), mod:silents_mechanisms (incompatible), mod:bambooeverything (incompatible), mod:neat (incompatible), mod:ironjetpacks, mod:essentials (incompatible), mod:forgeendertech, mod:gravelminer (incompatible), mod:powah, mod:rangedpumps, mod:wstweaks (incompatible), mod:xreliquary, mod:randompatches (incompatible), mod:darkutils (incompatible), mod:apotheosis (incompatible), mod:waila, mod:speedyhoppers (incompatible), mod:jeresources, mod:mysticalagradditions (incompatible), mod:refinedstorage, mod:upgradednetherite (incompatible), mod:industrialforegoing (incompatible), mod:cleancut (incompatible), mod:torchmaster (incompatible), mod:repurposed_structures, mod:ironfurnaces, mod:silentgear, mod:portality (incompatible), mod:curios, mod:botania, mod:randomite (incompatible), mod:angelring (incompatible), mod:fertilization (incompatible), mod:extrastorage, mod:naturesaura (incompatible), mod:constructionwand (incompatible), mod:mcwroofs (incompatible), mod:cfm (incompatible), mod:globalxp, mod:cloth-config (incompatible), mod:betterburning, mod:woodcutter, mod:fastleafdecay (incompatible), mod:bettermineshafts (incompatible), mod:nomowanderer (incompatible), mod:craftandhunt, mod:bagofyurting (incompatible), mod:vanillaexcavators (incompatible), mod:jei, mod:kubejs (incompatible), mod:attributefix, mod:tesseract (incompatible), mod:goblintraders, mod:mekanism, mod:ringsofascension (incompatible), mod:invtweaks (incompatible), mod:naturescompass (incompatible), mod:adhooks, mod:phosphophyllite (incompatible), mod:engineerstools, mod:farmingforblockheads (incompatible), mod:pneumaticcraft, mod:travellersboots (incompatible), mod:environmentalcreepers (incompatible), mod:packingtape (incompatible), mod:extradisks, mod:crossroads, mod:pandoras_creatures (incompatible), mod:mousetweaks, mod:immersiveengineering (incompatible), mod:morevanillalib (incompatible), mod:pamhc2crops (incompatible), mod:ceilingtorch, mod:mantle (incompatible), mod:xaerominimap, mod:pamhc2foodcore (incompatible), mod:itemcollectors (incompatible), mod:gravestone, mod:ftbbackups (incompatible), mod:polymorph (incompatible), mod:securitycraft (incompatible), mod:backpacked (incompatible), mod:pickletweaks, mod:fastfurnace (incompatible), mod:connectedglass (incompatible), mod:refinedrelocation (incompatible), mod:byg (incompatible), mod:cosmeticarmorreworked (incompatible), mod:lootbagmod (incompatible), mod:aiotbotania (incompatible), mod:geckolib (incompatible), mod:ars_nouveau, mod:managear, mod:curiousshulkerboxes, mod:kleeslabs (incompatible), mod:glassential (incompatible), mod:xaeroworldmap, mod:cookingforblockheads (incompatible), mod:placebo (incompatible), mod:dankstorage (incompatible), mod:citadel (incompatible), mod:iceandfire (incompatible), mod:rats, mod:ratlantis, mod:ftbguilibrary (incompatible), mod:culinaryconstruct (incompatible), mod:bookshelf, mod:botanypots, mod:botanytrees, mod:uteamcore, mod:buildinggadgets, mod:forge, mod:wailaharvestability, mod:passthroughsigns, mod:aquaculture (incompatible), mod:waddles, mod:mcwdoors, mod:mekanismgenerators, mod:maessentials (incompatible), mod:carryon, mod:ftbteams (incompatible), mod:dummmmmmy (incompatible), mod:konkrete, mod:prettypipes (incompatible), mod:mcwbridges (incompatible), mod:usefulbackpacks, mod:entangled (incompatible), mod:mekanismadditions, mod:lollipop, mod:dogslie, mod:mining_dimension, mod:simplefarming, mod:goprone, mod:patchouli (incompatible), mod:blockcarpentry (incompatible), mod:elevatorid (incompatible), mod:ftbultimine (incompatible), mod:expandedstorage, mod:enigmaticlegacy (incompatible), mod:runelic, mod:mekanismtools, mod:computercraft, mod:aiimprovements, mod:productivebees (incompatible), mod:trashcans (incompatible), mod:bwncr (incompatible), mod:cyclic (incompatible), mod:botaniaadditions, mod:ma-enchants (incompatible), mod:biggerreactors (incompatible), mod:cucumber, mod:trashslot (incompatible), mod:flatbedrock (incompatible), mod:craftingstation (incompatible), mod:itemfilters (incompatible), mod:ftbquests (incompatible), mod:metalbarrels (incompatible), mod:tinycoal (incompatible), mod:wawla, mod:waystones (incompatible), mod:clumps (incompatible), mod:appliedenergistics2 (incompatible), mod:dimstorage, mod:vanillatweaks, mod:taffyjump (incompatible), mod:dungeoncrawl, mod:mcjtylib, mod:rftoolsbase, mod:xnet, mod:rftoolspower, mod:rftoolsbuilder, mod:rftoolsstorage, mod:rftoolscontrol, mod:mininggadgets (incompatible), mod:ftbchunks (incompatible), mod:scuba_gear (incompatible), mod:mysticalagriculture, mod:craftingtweaks (incompatible), mod:rftoolsutility, mod:enchdesc, mod:toolbelt (incompatible), mod:titanium (incompatible), mod:compactores (incompatible), mod:silentlib (incompatible), mod:forbidden_arcanus (incompatible), mod:fluidtank, mod:fastbench (incompatible), mod:storagedrawers (incompatible), mod:vanillahammers (incompatible), mod:inventoryhud, mod:tubesreloaded (incompatible), mod:hunterillager, mod:engineersdecor, mod:solcarrot (incompatible), mod:modularrouters, mod:refinedstorageaddons, mod:craftingcraft (incompatible), mod:openloader, openloader/data/datapack.zip, mod:extcaves, mod:psi (incompatible), mod:bno (incompatible), mod:overloadedarmorbar (incompatible), mod:quarryplus, mod:quarkoddities (incompatible), mod:autoreglib (incompatible), mod:mahoutsukai (incompatible), mod:quark (incompatible), mod:woot, mod:libx, mod:mythicbotany, mod:world_pre_generator, mod:silentgems, mod:fluxnetworks, mod:chiselsandbits (incompatible)
+	Is Modded: Definitely; Server brand changed to 'forge'
+	Type: Dedicated Server (map_server.txt)
